@@ -27,13 +27,15 @@ int main(int argc, char *argv[])
             case 'f':
                 strcpy(filename,optarg);
                 number = getInfo(info, filename);
-                printf("<Data loaded successfully!>\n");
                 break;
             case 'y':
                 for(int i = 1; i <= 12; i++){
                     monthStat(info, number, i);
                 }
                 yearStat(info, number);
+                break;
+            case 'p':
+                printAll(info, number);
                 break;
             case 'm':
                 monthStat(info, number, atoi(optarg));

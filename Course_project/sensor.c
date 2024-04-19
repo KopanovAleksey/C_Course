@@ -24,6 +24,7 @@ int getInfo(struct sensor* info, char *filename)
     else{
         perror("Cant open file!\n");
     }
+    printf("<Data loaded successfully!>\n");
     return counter;
 }
 
@@ -57,10 +58,10 @@ void monthStat(struct sensor *info, int number, int month){
         }
     }
     if(counter > 0){
-    printf("Month-%d stat: Min: %d; Max: %d; Average: %d\n",month, min, max, sum/counter);
+    printf("%02d-%4d stat: Min: %3d; Max: %3d; Average: %3d\n",month,info[0].year, min, max, sum/counter);
     }
     else{
-        printf("No data for this month: %d\n", month);
+        printf("No data for %02d-%4d\n", month, info[0].year);
     }
 }
 
@@ -73,6 +74,6 @@ void yearStat(struct sensor *info, int number){
             min = info[i].t;
         sum += info[i].t;
     }
-    printf("Year stat: Min: %d; Max: %d; Average: %d\n",min, max, sum/number);
+    printf("Year stat: Min: %3d; Max: %3d; Average: %3d\n",min, max, sum/number);
 }
 
